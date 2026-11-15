@@ -77,3 +77,7 @@ This mirrors how a terminal IT developer actually works: extending the TOS, cons
 ---
 
 **Contact:** Philippe Godfroy | [philippegodfroy.com](https://philippegodfroy.com) | [linkedin.com/in/philippe-godfroy](https://linkedin.com/in/philippe-godfroy) | philippe.godfroy@hotmail.com
+
+## Final portfolio release
+
+[Final source snapshot — 15 November 2026](https://github.com/phlppgdfry/csp-zeebrugge-toolkit/releases/tag/portfolio-2026-11-15) · [Verification evidence](docs/VERIFICATION.md)

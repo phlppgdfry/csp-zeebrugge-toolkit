@@ -1,0 +1,36 @@
+{
+  "name": "csp-zeebrugge-toolkit",
+  "url": "https://phlppgdfry.github.io/csp-zeebrugge-toolkit/",
+  "tested_route": "https://phlppgdfry.github.io/csp-zeebrugge-toolkit/vbs-analytics/",
+  "checked_at": "2026-11-15T18:57:28.704Z",
+  "title": "VBS Analytics — CSP Zeebrugge",
+  "http_status": 200,
+  "desktop": {
+    "width": 1440,
+    "scroll_width": 1440
+  },
+  "mobile": {
+    "width": 390,
+    "scroll_width": 390
+  },
+  "runtime_errors": [],
+  "status": "passed",
+  "browser": "Chromium via Playwright",
+  "browser_plugin": "unavailable",
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 1040
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "interaction_checks": [
+    "Landing page preview image loads and dashboard link navigates correctly",
+    "Blocked-booking filter selects one record; CSV contains the same record",
+    "Empty search and reset work"
+  ],
+  "scope": "Public synthetic-data portfolio demo. No live terminal or Business Central operations were performed."
+}
