@@ -22,6 +22,7 @@ sourceSets {
 
 dependencies {
     implementation 'org.apache.groovy:groovy:4.0.24'
+    implementation 'org.apache.groovy:groovy-json:4.0.24'
     implementation 'org.apache.groovy:groovy-dateutil:4.0.24'
     testImplementation 'org.spockframework:spock-core:2.4-M5-groovy-4.0'
     testImplementation 'net.bytebuddy:byte-buddy:1.15.10'
@@ -35,4 +36,11 @@ test {
         events 'passed', 'skipped', 'failed'
         exceptionFormat 'full'
     }
+}
+
+tasks.register('exportGateDemo', JavaExec) {
+    dependsOn classes
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'GateDemoExporter'
+    args file('operations-demo/scenarios.json'), file('operations-demo/validated-events.json')
 }

@@ -1,0 +1,7 @@
+event_id,container,direction,decision,reason
+approved,CSNU7402841,OUT,APPROVED,"VBS plate, holds and direction-specific PIN checks passed."
+booking,CSNU7402841,OUT,BLOCKED,No VBS booking found for container CSNU7402841. Truck must pre-register via the VBS portal before gate entry.
+plate,CSNU7402841,OUT,BLOCKED,"Licence plate mismatch for VBS booking VBS-DEMO-001. Expected: 1-ABC-234, Got: 1-XYZ-999. Contact gate control."
+hold,CSNU7402841,OUT,BLOCKED,Container CSNU7402841 has active holds: CUSTOMS-DEMO-01. Gate release blocked until holds are resolved.
+pin,CSNU7402841,OUT,BLOCKED,PIN number required to collect container CSNU7402841. Obtain PIN from the shipping line or via the VBS portal.
+inbound,CSNU7402841,IN,APPROVED,"VBS plate, holds and direction-specific PIN checks passed."

@@ -1,0 +1,109 @@
+[
+  {
+    "id": "approved",
+    "label": "Ready for collection",
+    "transaction": {
+      "containerId": "CSNU7402841",
+      "truckPlate": "1-ABC-234",
+      "direction": "OUT",
+      "vbsBookingId": "VBS-DEMO-001",
+      "pinNumber": "4821"
+    },
+    "fixture": {
+      "registeredPlate": "1-ABC-234",
+      "expectedPin": "4821",
+      "holds": []
+    },
+    "expected": "APPROVED"
+  },
+  {
+    "id": "booking",
+    "label": "Missing VBS booking",
+    "transaction": {
+      "containerId": "CSNU7402841",
+      "truckPlate": "1-ABC-234",
+      "direction": "OUT",
+      "vbsBookingId": null,
+      "pinNumber": "4821"
+    },
+    "fixture": {
+      "registeredPlate": "1-ABC-234",
+      "expectedPin": "4821",
+      "holds": []
+    },
+    "expected": "BLOCKED"
+  },
+  {
+    "id": "plate",
+    "label": "Truck plate mismatch",
+    "transaction": {
+      "containerId": "CSNU7402841",
+      "truckPlate": "1-XYZ-999",
+      "direction": "OUT",
+      "vbsBookingId": "VBS-DEMO-001",
+      "pinNumber": "4821"
+    },
+    "fixture": {
+      "registeredPlate": "1-ABC-234",
+      "expectedPin": "4821",
+      "holds": []
+    },
+    "expected": "BLOCKED"
+  },
+  {
+    "id": "hold",
+    "label": "Customs hold",
+    "transaction": {
+      "containerId": "CSNU7402841",
+      "truckPlate": "1-ABC-234",
+      "direction": "OUT",
+      "vbsBookingId": "VBS-DEMO-001",
+      "pinNumber": "4821"
+    },
+    "fixture": {
+      "registeredPlate": "1-ABC-234",
+      "expectedPin": "4821",
+      "holds": [
+        {
+          "holdCategory": "CUSTOMS",
+          "holdId": "CUSTOMS-DEMO-01"
+        }
+      ]
+    },
+    "expected": "BLOCKED"
+  },
+  {
+    "id": "pin",
+    "label": "Missing collection PIN",
+    "transaction": {
+      "containerId": "CSNU7402841",
+      "truckPlate": "1-ABC-234",
+      "direction": "OUT",
+      "vbsBookingId": "VBS-DEMO-001",
+      "pinNumber": null
+    },
+    "fixture": {
+      "registeredPlate": "1-ABC-234",
+      "expectedPin": "4821",
+      "holds": []
+    },
+    "expected": "BLOCKED"
+  },
+  {
+    "id": "inbound",
+    "label": "Inbound delivery",
+    "transaction": {
+      "containerId": "CSNU7402841",
+      "truckPlate": "1-ABC-234",
+      "direction": "IN",
+      "vbsBookingId": "VBS-DEMO-001",
+      "pinNumber": null
+    },
+    "fixture": {
+      "registeredPlate": "1-ABC-234",
+      "expectedPin": "4821",
+      "holds": []
+    },
+    "expected": "APPROVED"
+  }
+]

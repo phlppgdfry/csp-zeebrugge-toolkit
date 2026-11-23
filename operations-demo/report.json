@@ -1,0 +1,99 @@
+{
+  "source": "GateTransactionInterceptor synthetic fixture replay",
+  "sourceSha256": "e1af1bc3a8dfd1647b26a9c66c934d77c403bb57b550bc10733483a7e99be5c3",
+  "total": 6,
+  "approved": 2,
+  "blocked": 4,
+  "events": [
+    {
+      "id": "approved",
+      "label": "Ready for collection",
+      "transaction": {
+        "containerId": "CSNU7402841",
+        "truckPlate": "1-ABC-234",
+        "direction": "OUT",
+        "vbsBookingId": "VBS-DEMO-001",
+        "pinNumber": "4821"
+      },
+      "status": "APPROVED",
+      "reason": "VBS plate, holds and direction-specific PIN checks passed.",
+      "validator": "GateTransactionInterceptor",
+      "source": "Synthetic fixture; no live N4, VBS or gate connection"
+    },
+    {
+      "id": "booking",
+      "label": "Missing VBS booking",
+      "transaction": {
+        "containerId": "CSNU7402841",
+        "truckPlate": "1-ABC-234",
+        "direction": "OUT",
+        "vbsBookingId": null,
+        "pinNumber": "4821"
+      },
+      "status": "BLOCKED",
+      "reason": "No VBS booking found for container CSNU7402841. Truck must pre-register via the VBS portal before gate entry.",
+      "validator": "GateTransactionInterceptor",
+      "source": "Synthetic fixture; no live N4, VBS or gate connection"
+    },
+    {
+      "id": "plate",
+      "label": "Truck plate mismatch",
+      "transaction": {
+        "containerId": "CSNU7402841",
+        "truckPlate": "1-XYZ-999",
+        "direction": "OUT",
+        "vbsBookingId": "VBS-DEMO-001",
+        "pinNumber": "4821"
+      },
+      "status": "BLOCKED",
+      "reason": "Licence plate mismatch for VBS booking VBS-DEMO-001. Expected: 1-ABC-234, Got: 1-XYZ-999. Contact gate control.",
+      "validator": "GateTransactionInterceptor",
+      "source": "Synthetic fixture; no live N4, VBS or gate connection"
+    },
+    {
+      "id": "hold",
+      "label": "Customs hold",
+      "transaction": {
+        "containerId": "CSNU7402841",
+        "truckPlate": "1-ABC-234",
+        "direction": "OUT",
+        "vbsBookingId": "VBS-DEMO-001",
+        "pinNumber": "4821"
+      },
+      "status": "BLOCKED",
+      "reason": "Container CSNU7402841 has active holds: CUSTOMS-DEMO-01. Gate release blocked until holds are resolved.",
+      "validator": "GateTransactionInterceptor",
+      "source": "Synthetic fixture; no live N4, VBS or gate connection"
+    },
+    {
+      "id": "pin",
+      "label": "Missing collection PIN",
+      "transaction": {
+        "containerId": "CSNU7402841",
+        "truckPlate": "1-ABC-234",
+        "direction": "OUT",
+        "vbsBookingId": "VBS-DEMO-001",
+        "pinNumber": null
+      },
+      "status": "BLOCKED",
+      "reason": "PIN number required to collect container CSNU7402841. Obtain PIN from the shipping line or via the VBS portal.",
+      "validator": "GateTransactionInterceptor",
+      "source": "Synthetic fixture; no live N4, VBS or gate connection"
+    },
+    {
+      "id": "inbound",
+      "label": "Inbound delivery",
+      "transaction": {
+        "containerId": "CSNU7402841",
+        "truckPlate": "1-ABC-234",
+        "direction": "IN",
+        "vbsBookingId": "VBS-DEMO-001",
+        "pinNumber": null
+      },
+      "status": "APPROVED",
+      "reason": "VBS plate, holds and direction-specific PIN checks passed.",
+      "validator": "GateTransactionInterceptor",
+      "source": "Synthetic fixture; no live N4, VBS or gate connection"
+    }
+  ]
+}

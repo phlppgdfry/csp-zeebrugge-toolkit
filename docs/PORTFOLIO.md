@@ -30,3 +30,8 @@ reconciles all five output artifacts in a temporary directory. Groovy tests run
 against local fixtures; production deployment requires the licensed Navis SDK,
 real terminal configuration and integration validation. Oracle SQL is a design
 example and was not executed against a live N4/Oracle warehouse.
+
+
+## Updated walkthrough — 24 November 2026
+
+The primary walkthrough follows a gate transaction through the actual Groovy GateTransactionInterceptor, a shared batch dashboard and CSV/JSON reporting. Six synthetic lookup fixtures produce two approvals and four blocks. The browser replays generated decisions; it does not issue real gate commands.

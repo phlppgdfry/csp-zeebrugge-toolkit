@@ -1,0 +1,15 @@
+{
+  "name": "csp-zeebrugge-toolkit-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "@playwright/test": "1.65.1"
+  },
+  "dependencies": {
+    "chart.js": "4.4.8"
+  },
+  "scripts": {
+    "build": "node scripts/build-demo.cjs",
+    "test:e2e": "npm run build && playwright test"
+  }
+}
