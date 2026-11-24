@@ -20,6 +20,7 @@ jobs:
           gradle-version: '8.14.3'
       - run: gradle test exportGateDemo
       - run: python3 bi-reporting/python/gate_demo_report.py
+      - run: node --test .github/scripts/deploy-pages.test.mjs
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
