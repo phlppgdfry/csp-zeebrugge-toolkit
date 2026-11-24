@@ -11,7 +11,9 @@ test.beforeEach(async ({page}) => {
 test.afterEach(async ({page}) => { expect(page._errors).toEqual([]); });
 
 test('gate fixture follows the same decision through validation, dashboard and report', async ({page}) => {
-  await page.goto('/operations-demo/');
+  await page.goto('/');
+  await page.getByRole('link',{name:'Follow a gate event',exact:true}).click();
+  await expect(page).toHaveURL(/operations-demo\/$/);
   await expect(page.locator('#scenario option')).toHaveCount(6);
   await page.getByLabel('Scenario',{exact:true}).selectOption('hold');
   await page.getByRole('button',{name:'Reveal validation result'}).click();
