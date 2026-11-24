@@ -31,7 +31,7 @@ Three modules modelling the IT landscape of a **Navis N4 container terminal**: T
 Navis N4 code extensions written in Groovy — the exact mechanism N4 uses for customisation. Includes independently testable hook patterns for container validation, gate workflow interception, and reefer monitoring.
 
 ### 2. [`vbs-analytics/`](./vbs-analytics/)
-Live browser dashboard for Camco VBS gate data: truck booking volumes, peak hour heatmap, gate transaction KPIs, and SLA tracking. Pure HTML/JS — open `index.html` and it runs.
+Live browser dashboard for Camco VBS gate data: truck booking volumes, peak hour heatmap, gate transaction KPIs, and SLA tracking. Pure HTML/JS. Run `npm ci && npm run build`, then serve the generated public artifact with `python3 -m http.server 8000 --directory site` and open `/vbs-analytics/`. Chart.js is bundled locally during the build.
 
 ### 3. [`bi-reporting/`](./bi-reporting/)
 Oracle SQL datawarehouse schema + KPI queries designed to sit between N4 and a BI tool (Power BI / Tableau). Includes a Python script that generates automated daily CSV and chart reports.
