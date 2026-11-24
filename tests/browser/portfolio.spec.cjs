@@ -32,3 +32,13 @@ test('VBS dashboard filters and exports selected bookings', async ({page}) => {
   expect(file.data.toString()).toContain('blocked');expect(file.data.toString()).not.toContain('approved');
   await page.locator('#booking-search').fill('NO-MATCH');await expect(page.locator('tbody')).toContainText('No bookings match');
 });
+
+test('gate replay waits for its report and handles report failures', async ({page})=>{
+  let release; const gate=new Promise(resolve=>release=resolve);
+  await page.route('**/operations-demo/report.json',async route=>{await gate;await route.continue();});
+  await page.goto('/operations-demo/');await expect(page.getByRole('button',{name:'Reveal validation result'})).toBeDisabled();
+  release();await expect(page.getByRole('button',{name:'Reveal validation result'})).toBeEnabled();
+  await page.unroute('**/operations-demo/report.json');await page.route('**/operations-demo/report.json',route=>route.fulfill({status:503,body:'Unavailable'}));
+  await page.reload();await expect(page.locator('#decision')).toContainText('Report unavailable');
+  await expect(page.getByRole('button',{name:'Reveal validation result'})).toBeDisabled();
+});

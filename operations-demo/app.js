@@ -1,6 +1,7 @@
 const $ = id => document.getElementById(id);
 let report;
 fetch('report.json').then(response => { if (!response.ok) throw new Error('Report unavailable'); return response.json(); }).then(data => {
+  if (!Array.isArray(data.events) || !data.events.length) throw new Error('No validated events');
   report = data;
   for (const event of data.events) { const option = new Option(event.label, event.id); $('scenario').add(option); }
   for (const event of data.events) {
@@ -9,7 +10,7 @@ fetch('report.json').then(response => { if (!response.ok) throw new Error('Repor
     $('report-rows').append(row);
   }
   $('provenance').textContent = 'Validator output SHA-256: ' + data.sourceSha256;
-  choose();
+  choose(); $('scenario').disabled=false; $('validate').disabled=false;
 }).catch(error => { $('decision').textContent = error.message + '. Rebuild the fixture pipeline to continue.'; $('validate').disabled=true; });
 function current() { return report.events.find(event => event.id === $('scenario').value); }
 function choose() {

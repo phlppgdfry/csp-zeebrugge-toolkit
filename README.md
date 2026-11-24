@@ -91,4 +91,4 @@ Browser checks run before every default-branch Pages deployment, in Chromium at 
 
 [Connected live walkthrough](https://phlppgdfry.github.io/csp-zeebrugge-toolkit/operations-demo/) · Rebuild with `gradle test exportGateDemo`, `python3 bi-reporting/python/gate_demo_report.py`, then `npm run build`. The existing VBS chart dashboard remains a separate full-day scenario and is labelled accordingly.
 
-[Current refined source release — 24 November 2026](https://github.com/phlppgdfry/csp-zeebrugge-toolkit/releases/tag/portfolio-2026-11-24.1). Browser checks also run on pull requests.
+[Current refined source release — 24 November 2026](https://github.com/phlppgdfry/csp-zeebrugge-toolkit/releases/latest). Browser checks also run on pull requests.

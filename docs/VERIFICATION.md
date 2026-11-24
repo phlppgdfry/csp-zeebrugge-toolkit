@@ -1,3 +1,9 @@
+# Closeout audit — 24 November 2026
+
+The gate replay controls remain disabled while its report loads. A missing report produces an explained failure state. Landing navigation, approval/blocking, batch impact and CSV content are browser-tested.
+
+6 Chromium browser checks passed across 1440×1000 desktop and 390×844 mobile emulation. No uncaught page errors or horizontal page overflow were observed. The full five-project set contains 20 browser checks. Current npm audit: zero known vulnerabilities. Local Markdown links resolve. Browser plugin not available; validation used Playwright. Physical devices, Safari and production terminal/ERP integrations are outside this synthetic portfolio acceptance scope.
+
 # Verification — 24 November 2026
 
 The primary walkthrough follows a gate transaction through the actual Groovy GateTransactionInterceptor, a shared batch dashboard and CSV/JSON reporting. Six synthetic lookup fixtures produce two approvals and four blocks. The browser replays generated decisions; it does not issue real gate commands.
